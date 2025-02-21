@@ -1,0 +1,20 @@
+CREATE TABLE IF NOT EXISTS users(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    email TEXT NOT NULL,
+    password TEXT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS products(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT NOT NULL,
+    quantita INTEGER NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS lists (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    data_creazione TEXT UNIQUE,  -- SQLite doesn't have a DATE type, use TEXT and store dates in ISO 8601 format (YYYY-MM-DD)
+    elements TEXT -- SQLite doesn't have a JSON type, use TEXT and store JSON as strings.  You'll need to use application logic to parse it.
+);
+
+
+INSERT INTO users (id,email,password) values (1,"postamaster@famigliameneghini.it","$2y$12$r3lrqWgCduAEt794hI0jlu8..QD4EzS66PwNDMpDgwoQolLEm234C");
