@@ -14,8 +14,12 @@
 				<label for="quantità" class="text-sm">Quantità prodotto</label>
 				<input x-model="quantita" name="quantita" type="number" class="outline-none border border-slate-300 focus:border-none focus:ring-2 focus:ring-blue-300 rounded p-2" placeholder="quantità"></input>
 			</div>
-			<div class="mt-4 flex justify-center"><button @click.prevent="addToList" class="p-2 rounded bg-blue-500 hover:scale-105 duration-200 text-white">Crea</button></div>
+			<div class="mt-4 flex justify-center"><button @click.prevent="addToList" class="p-2 rounded bg-blue-500 hover:scale-105 duration-200 text-white">Aggiungi</button></div>
 		</form>
+	</div>
+	<div class="mt-4 mb-8 flex justify-center  gap-4">
+		<button class="p-2 bg-blue-500 text-white rounded" @click.prevent="duplicateList">Duplica lista</button>
+		<button class="p-2 bg-red-500 text-white rounded" @click.prevent="deleteList">Elimina lista</button>
 	</div>
 	<table x-show="list.length != 0" class="table-fixed border-collapse w-full md:w-2/3 md:mx-auto" x-transition>
 		<tr class="bg-slate-200 p-2">
@@ -51,7 +55,7 @@
 		</tbody>
 	</table>
 	<div class="flex justify-center mt-8" x-show="list.length != 0">
-		<button @click.prevent="saveList" class="p-2 rounded bg-blue bg-blue-500 hover:scale-105 duration-200 text-white">
+		<button @click.prevent="updateList" class="p-2 rounded bg-blue bg-blue-500 hover:scale-105 duration-200 text-white">
 			Salva Lista
 		</button>
 	</div>
