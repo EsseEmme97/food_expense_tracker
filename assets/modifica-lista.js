@@ -37,11 +37,17 @@ document.addEventListener("alpine:init", () => {
       }
     },
 
+    // swappingElements(item, position) {
+    //   const temp = this.list[item];
+    //   this.list.splice(item, 1, this.list[position]);
+    //   this.list.splice(position, 1, temp);
+    // },
+
     async duplicateList() {
       if (window.confirm("sei sicuro di voler duplicare la lista?")) {
         const queryString = window.location.search;
         const urlParams = new URLSearchParams(queryString);
-        data = JSON.stringify({ id: urlParams.get("numero") });
+        const data = JSON.stringify({ id: urlParams.get("numero") });
         try {
           const request = await fetch("./duplica-lista.php", {
             method: "POST",
@@ -57,7 +63,7 @@ document.addEventListener("alpine:init", () => {
       if (window.confirm("vuoi davvero eliminare la lista?")) {
         const queryString = window.location.search;
         const urlParams = new URLSearchParams(queryString);
-        data = JSON.stringify({ id: urlParams.get("numero") });
+        const data = JSON.stringify({ id: urlParams.get("numero") });
         try {
           const request = await fetch("./elimina-lista.php", {
             method: "POST",

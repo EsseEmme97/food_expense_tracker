@@ -27,9 +27,13 @@
 			<th>Quantità</th>
 			<th>Azioni</th>
 		</tr>
-		<tbody x-data x-sort>
+		<tbody x-data="{handle:(item, position) =>{
+      const temp = list[item];
+      list.splice(item, 1, list[position]);
+      list.splice(position, 1, temp);
+    }}" x-sort="handle">
 			<template x-for="(element,index) in list">
-				<tr x-sort:item @click="checked=!checked" x-data="{ checked: false, modify: false }" :class="checked ? 'bg-green-200 p-2' : 'p-2' ">
+				<tr x-sort:item="index" @click="checked=!checked" x-data="{ checked: false, modify: false }" :class="checked ? 'bg-green-200 p-2' : 'p-2' ">
 					<td class="text-center p-2">
 						<input type="text" class="outline-none border-none bg-transparent mx-auto text-center max-w-full"
 							x-model="element.name" :readonly="!modify" />

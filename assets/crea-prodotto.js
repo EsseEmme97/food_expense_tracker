@@ -23,6 +23,7 @@ document.addEventListener("alpine:init", () => {
       }
     },
 
+
     addToList() {
       if (this.name.trim() && this.quantita > 0) {
         this.list.push({ name: this.name, quantita: this.quantita });

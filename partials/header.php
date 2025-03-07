@@ -1,7 +1,7 @@
 <?php
 $script = $_SERVER["SCRIPT_NAME"] === "/partials/lista.php" 
-    ? '<script src="../assets/modifica-lista.js"></script>' 
-    : '<script src="../assets/crea-prodotto.js"></script>';
+    ? '<script defer src="../assets/modifica-lista.js"></script>' 
+    : '<script defer src="../assets/crea-prodotto.js"></script>';
 ?>
 <!DOCTYPE html>
 <html lang="en">
