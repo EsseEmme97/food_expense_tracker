@@ -2,7 +2,8 @@
 <? include("./header.php") ?>
 <? include("./navbar.php") ?>
 <main x-data="shoppingList">
-	<div x-show="loading" class="absolute w-1/3 bottom-10 right-10 rounded-lg text-center p-4 bg-green-200 text-green-600" x-transition>dati inviati correttamente</div>
+	<span id="scroll-indicator" class="fixed size-8 bg-black text-white bottom-1 left-1 rounded-full text-center text-xl p-1">↓</span>
+	<div x-show="loading" class="fixed w-screen md:w-1/3 bottom-0 md:bottom-10 md:right-10 rounded-lg text-center p-4 bg-green-200 text-green-600" x-transition>dati inviati correttamente</div>
 	<h1 class="text-center text-5xl mt-10">Modifica Lista</h1>
 	<div class="min-h-80 flex items-center justify-center">
 		<form class="border p-4 rounded-lg border-slate-300">
@@ -28,9 +29,9 @@
 			<th>Azioni</th>
 		</tr>
 		<tbody x-data="{handle:(item, position) =>{
-      const temp = list[item];
-      list.splice(item, 1, list[position]);
-      list.splice(position, 1, temp);
+      const tempPosition = list[item];
+      list[item] = list[position];
+      list[position] = tempPosition;
     }}" x-sort="handle">
 			<template x-for="(element,index) in list">
 				<tr x-sort:item="index" @click="checked=!checked" x-data="{ checked: false, modify: false }" :class="checked ? 'bg-green-200 p-2' : 'p-2' ">

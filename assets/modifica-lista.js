@@ -4,6 +4,7 @@ document.addEventListener("alpine:init", () => {
     quantita: 0,
     name: "",
     loading: false,
+    showScrollIndicator: false,
 
     async init() {
       const queryString = window.location.search;
@@ -31,17 +32,11 @@ document.addEventListener("alpine:init", () => {
           },
           body: data,
         });
-        this.loading = false;
+        setTimeout(() => (this.loading = false), 3000);
       } catch (error) {
         console.error(`errore nel inviare la richiesta:${error}`);
       }
     },
-
-    // swappingElements(item, position) {
-    //   const temp = this.list[item];
-    //   this.list.splice(item, 1, this.list[position]);
-    //   this.list.splice(position, 1, temp);
-    // },
 
     async duplicateList() {
       if (window.confirm("sei sicuro di voler duplicare la lista?")) {
@@ -84,4 +79,21 @@ document.addEventListener("alpine:init", () => {
       }
     },
   }));
+});
+
+const scrollIndicator = document.getElementById("scroll-indicator");
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 100) {
+    scrollIndicator.innerText = "↑";
+  } else{
+    scrollIndicator.innerText="↓"
+  }
+});
+
+scrollIndicator.addEventListener("click", () => {
+  if(window.scrollY>100){
+    document.documentElement.scrollTop = 0;
+  } else{
+    document.documentElement.scrollTop=document.documentElement.scrollHeight
+  }
 });

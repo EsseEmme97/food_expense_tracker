@@ -14,4 +14,4 @@ $script = $_SERVER["SCRIPT_NAME"] === "/partials/lista.php"
     <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
     <title>Lista della spesa</title>
 </head>
-<body class="bg-slate-50">
+<body class="bg-slate-50 pb-6">

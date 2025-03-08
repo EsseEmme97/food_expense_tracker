@@ -2,7 +2,7 @@
 <? include("./partials/header.php") ?>
 <? include("./partials/navbar.php") ?>
 <main x-data="shoppingList">
-	<div x-show="loading" class="absolute w-full md:w-1/3 bottom-10 md:right-10 rounded-lg text-center p-4 bg-green-200 text-green-600" x-transition>dati inviati correttamente</div>
+	<div x-show="loading" class="fixed w-screen md:w-1/3 bottom-0 md:bottom-10 md:right-10 rounded-lg text-center p-4 bg-green-200 text-green-600" x-transition>dati inviati correttamente</div>
 	<h1 class="text-center text-5xl mt-10">Lista della spesa</h1>
 	<div class="min-h-80 flex items-center justify-center">
 		<form class="border p-4 rounded-lg border-slate-300">
