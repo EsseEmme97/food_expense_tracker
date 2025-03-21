@@ -17,7 +17,7 @@ document.addEventListener("alpine:init", () => {
           },
           body: data,
         });
-        this.loading=false;
+        setTimeout(() => (this.loading = false), 3000);
       } catch (error) {
         console.error(`errore nel inviare la richiesta:${error}`);
       }

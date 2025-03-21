@@ -33,7 +33,7 @@
       list[item] = list[position];
       list[position] = tempPosition;
     }}" x-sort="handle">
-			<template x-for="(element,index) in list">
+			<template x-for="(element,index) in list" :key="crypto.randomUUID()">
 				<tr x-sort:item="index" @click="checked=!checked" x-data="{ checked: false, modify: false }" :class="checked ? 'bg-green-200 p-2' : 'p-2' ">
 					<td class="text-center p-2">
 						<input type="text" class="outline-none border-none bg-transparent mx-auto text-center max-w-full"

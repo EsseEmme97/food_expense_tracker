@@ -24,7 +24,7 @@
 			<th>Azioni</th>
 		</tr>
 		<tbody x-data x-sort>
-			<template x-for="(element,index) in list">
+			<template x-for="(element,index) in list" :key="element.name+index">
 				<tr x-sort:item @click="checked=!checked" x-data="{ checked: false, modify: false }" :class="checked ? 'bg-green-200 p-2' : 'p-2' ">
 					<td class="text-center p-2">
 						<input type="text" class="outline-none border-none bg-transparent mx-auto text-center max-w-full"
