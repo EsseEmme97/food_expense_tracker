@@ -16,7 +16,7 @@ $lists = $statement->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <main class="p-2">
-	<h1 class="text-4xl text-center">Elenco liste</h1>
+	<h1 class="text-4xl text-center mt-4">Elenco liste</h1>
 	<div class="grid gap-4 grid-cols-3 md:grid-cols-12 md:gap-6 mt-4">
 		<? if (count($lists) != 0): ?>
 			<? foreach ($lists as $index => $list): ?>

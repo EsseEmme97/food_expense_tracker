@@ -16,5 +16,11 @@ CREATE TABLE IF NOT EXISTS lists (
     elements TEXT -- SQLite doesn't have a JSON type, use TEXT and store JSON as strings.  You'll need to use application logic to parse it.
 );
 
+CREATE TABLE IF NOT EXISTS costs (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    data_spesa TEXT UNIQUE,
+    importo INTEGER
+);
+
 
 INSERT INTO users (id,email,password) values (1,"postamaster@famigliameneghini.it","$2y$12$r3lrqWgCduAEt794hI0jlu8..QD4EzS66PwNDMpDgwoQolLEm234C");
