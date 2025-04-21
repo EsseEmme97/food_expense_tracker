@@ -78,6 +78,24 @@ document.addEventListener("alpine:init", () => {
         this.name = "";
       }
     },
+
+    async orderList(){
+      const data = JSON.stringify({ list: this.list });
+      try {
+        const request = await fetch("../ai/orderElements.php", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: data,
+        });
+        const response = await request.json();
+        this.list = response;
+      } catch (error) {
+        console.error(`errore nel inviare la richiesta:${error}`);
+      }
+
+    }
   }));
 });
 

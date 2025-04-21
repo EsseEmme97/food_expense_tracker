@@ -21,6 +21,9 @@
 	<div class="mt-4 mb-8 flex justify-center  gap-4">
 		<button class="p-2 bg-blue-500 text-white rounded" @click.prevent="duplicateList">Duplica lista</button>
 		<button class="p-2 bg-red-500 text-white rounded" @click.prevent="deleteList">Elimina lista</button>
+		<button class="p-2 bg-black text-white rounded min-w-16 flex justify-center" title="Ordina con AI" @click.prevent="orderList">
+			<img src="../assets/images/ai_icon.svg" alt="ai_icon" class="size-8">
+		</button>
 	</div>
 	<table x-show="list.length != 0" class="table-fixed border-collapse w-full md:w-2/3 md:mx-auto" x-transition>
 		<tr class="bg-slate-200 p-2">
@@ -28,13 +31,9 @@
 			<th>Quantità</th>
 			<th>Azioni</th>
 		</tr>
-		<tbody x-data="{handle:(item, position) =>{
-      const tempPosition = list[item];
-      list[item] = list[position];
-      list[position] = tempPosition;
-    }}" x-sort="handle">
+		<tbody>
 			<template x-for="(element,index) in list" :key="crypto.randomUUID()">
-				<tr x-sort:item="index" @click="checked=!checked" x-data="{ checked: false, modify: false }" :class="checked ? 'bg-green-200 p-2' : 'p-2' ">
+				<tr @click="checked=!checked" x-data="{ checked: false, modify: false }" :class="checked ? 'bg-green-200 p-2' : 'p-2' ">
 					<td class="text-center p-2">
 						<input type="text" class="outline-none border-none bg-transparent mx-auto text-center max-w-full"
 							x-model="element.name" :readonly="!modify" />
